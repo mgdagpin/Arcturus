@@ -10,6 +10,12 @@ namespace Canary.Infrastructure.Persistence
 {
     public class CanaryDbContext : DbContext, ICanaryDbContext
     {
+
+        public CanaryDbContext(DbContextOptions<CanaryDbContext> dbContextOptions) : base(dbContextOptions)
+        {
+
+        }
+
         public DbSet<User> Users { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<BlogPost> BlogPosts { get; set; }

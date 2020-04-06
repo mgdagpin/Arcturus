@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Canary.Application.Authors.Queries.Models;
 using Canary.Domain.Entities;
 using System;
 
@@ -14,7 +13,7 @@ namespace Canary.Application.BlogPosts.Queries.Models
         public DateTime PublishedOn { get; set; }
 
 
-        public UsersBO Author { get; set; }
+        public UserBO Author { get; set; }
 
 
         public void Mapping(Profile profile)

@@ -15,12 +15,11 @@ namespace Canary.Infrastructure
                 options.UseSqlServer
                     (
                         connectionString: configuration.GetConnectionString("CanaryDbConstring"),
-                    sqlServerOptionsAction: opt => opt.MigrationsAssembly("Canary.DbMigration")
+                        sqlServerOptionsAction: opt => opt.MigrationsAssembly("Canary.DbMigration")
                     );
             });
 
             service.AddScoped<ICanaryDbContext>(provider => provider.GetService<CanaryDbContext>());
-            service.AddScoped<DbContext>(provider => provider.GetService<CanaryDbContext>());
 
             return service;
 

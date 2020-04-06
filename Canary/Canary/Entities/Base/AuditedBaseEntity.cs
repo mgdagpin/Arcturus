@@ -6,8 +6,6 @@ namespace Canary.Domain
     public abstract class AuditedBaseEntity : BaseEntity
     {
         public DateTime CreatedOn { get; set; } = DateTime.UtcNow;
-
-        [Required]
         public string CreatedBy { get; set; }
 
         //public DateTime? ModifiedOn { get; set; }
