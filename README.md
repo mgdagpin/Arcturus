@@ -12,3 +12,7 @@ This solution architecture is inspired of Clean Architecture by [Robert C. Marti
 - MiniProfiler with EFCore
 - AutoMapper
 - Database Migrations
+
+
+## Community
+Join our discord channel [https://discord.gg/GdHCtHn](https://discord.gg/GdHCtHn)
