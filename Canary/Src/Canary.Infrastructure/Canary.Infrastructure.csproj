@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Canary.Application\Canary.Application.csproj" />
-    <ProjectReference Include="..\Canary\Canary.Domain.csproj" />
+    <ProjectReference Include="..\Canary.Domain\Canary.Domain.csproj" />
   </ItemGroup>
 
 </Project>

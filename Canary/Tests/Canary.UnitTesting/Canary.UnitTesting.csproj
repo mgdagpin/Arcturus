@@ -16,9 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Canary.Application\Canary.Application.csproj" />
-    <ProjectReference Include="..\Canary.Infrastructure\Canary.Infrastructure.csproj" />
-    <ProjectReference Include="..\Canary\Canary.Domain.csproj" />
+    <ProjectReference Include="..\..\Src\Canary.Application\Canary.Application.csproj" />
+    <ProjectReference Include="..\..\Src\Canary.Domain\Canary.Domain.csproj" />
+    <ProjectReference Include="..\..\Src\Canary.Infrastructure\Canary.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>

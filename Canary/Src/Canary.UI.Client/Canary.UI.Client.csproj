@@ -16,10 +16,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Migrations\Canary.DbMigration\Canary.DbMigration.csproj" />
     <ProjectReference Include="..\Canary.Application\Canary.Application.csproj" />
-    <ProjectReference Include="..\Canary.DbMigration\Canary.DbMigration.csproj" />
+    <ProjectReference Include="..\Canary.Domain\Canary.Domain.csproj" />
     <ProjectReference Include="..\Canary.Infrastructure\Canary.Infrastructure.csproj" />
-    <ProjectReference Include="..\Canary\Canary.Domain.csproj" />
   </ItemGroup>
 
 </Project>
