@@ -10,11 +10,14 @@ namespace Canary.Infrastructure.Persistence
 {
     public class CanaryDbContext : DbContext, ICanaryDbContext
     {
+        private readonly IDateTime dateTime;
 
-        public CanaryDbContext(DbContextOptions<CanaryDbContext> dbContextOptions) : base(dbContextOptions)
+        public CanaryDbContext(DbContextOptions<CanaryDbContext> dbContextOptions, IDateTime dateTime) : base(dbContextOptions)
         {
-
+            this.dateTime = dateTime;
         }
+
+
 
         public DbSet<User> Users { get; set; }
         public DbSet<Author> Authors { get; set; }

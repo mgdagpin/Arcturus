@@ -1,5 +1,6 @@
 using Canary.Application;
 using Canary.Infrastructure;
+using Canary.UI.Client.Common;
 using Canary.UI.Client.Common.Security;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
@@ -27,6 +28,7 @@ namespace Canary.UI.Client
             services.AddInfrastructure(Configuration);
 
             services.AddScoped<ICurrentAppUser, CurrentAppUser>();
+            services.AddScoped<IDateTime, AppDateTime>();
 
             services.AddHttpContextAccessor();
 
@@ -37,7 +39,7 @@ namespace Canary.UI.Client
             .AddEntityFramework();
 
             services.AddControllersWithViews()
-            .AddFluentValidation(a => a.RegisterValidatorsFromAssemblyContaining<ICanaryDbContext>());;
+            .AddFluentValidation(a => a.RegisterValidatorsFromAssemblyContaining<ICanaryDbContext>()); ;
 
 
             services.AddAuthorization(options =>

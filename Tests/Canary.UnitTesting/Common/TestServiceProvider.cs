@@ -41,7 +41,7 @@ namespace Canary.UnitTesting.Common
             serviceCollection.AddSingleton<IConfiguration>(p => _config);
 
             serviceCollection.AddScoped<ICurrentAppUser, TestCurrentUser>();
-
+            serviceCollection.AddScoped<IDateTime, TestDateTime>();
 
             serviceCollection.AddApplication();
             serviceCollection.AddLogging();
