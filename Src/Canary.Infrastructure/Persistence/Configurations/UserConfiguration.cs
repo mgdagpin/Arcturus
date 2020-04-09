@@ -1,6 +1,7 @@
 ﻿using Canary.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System;
 
 namespace Canary.Infrastructure.Persistence.Configurations
 {
@@ -23,7 +24,8 @@ namespace Canary.Infrastructure.Persistence.Configurations
             {
                 ID = -1,
                 FirstName = "Default",
-                LastName = "Default"
+                LastName = "Default",
+                CreatedOn = new DateTime(2020, 1, 1)
             });
 
         }

@@ -13,7 +13,8 @@ namespace Canary.Infrastructure.Persistence.Configurations
         {
             builder.HasData(new Author
             {
-                ID = -1
+                ID = -1,
+                CreatedOn = new DateTime(2020, 1, 1)
             });
         }
     }

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Canary.DbMigration.Migrations
 {
     [DbContext(typeof(CanaryDbContext))]
-    [Migration("20200406073617_Init")]
-    partial class Init
+    [Migration("20200409081722_LS")]
+    partial class LS
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -40,7 +40,7 @@ namespace Canary.DbMigration.Migrations
                         new
                         {
                             ID = -1,
-                            CreatedOn = new DateTime(2020, 4, 6, 7, 36, 17, 133, DateTimeKind.Utc).AddTicks(8894)
+                            CreatedOn = new DateTime(2020, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -128,7 +128,7 @@ namespace Canary.DbMigration.Migrations
                         new
                         {
                             ID = -1,
-                            CreatedOn = new DateTime(2020, 4, 6, 7, 36, 17, 154, DateTimeKind.Utc).AddTicks(6354),
+                            CreatedOn = new DateTime(2020, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstName = "Default",
                             Gender = "None",
                             LastName = "Default"

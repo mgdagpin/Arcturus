@@ -36,3 +36,42 @@ The entry point of the application is the ASP.NET Core web project.
 
 ## Discussions
 Join our discord channel [https://discord.gg/GdHCtHn](https://discord.gg/GdHCtHn)
+
+
+
+----
+
+Connecting same dbContext to linked server
+
+
+Create linked server script
+``` SQL
+USE master
+
+DECLARE @serverName NVARCHAR(100) = 'LS_v13'
+DECLARE @dataSource NVARCHAR(100) = '(localdb)\ProjectsV13'
+
+IF EXISTS(SELECT * from sys.servers WHERE name = @serverName)
+BEGIN
+    DECLARE @serverId INT
+    SELECT @serverId = server_id FROM sys.servers WHERE name = @serverName
+    IF EXISTS(SELECT * FROM sys.linked_logins WHERE server_id = @serverId)
+    BEGIN
+        EXEC sp_droplinkedsrvlogin @serverName, null
+    END
+
+    EXEC sp_dropserver @serverName
+END
+
+EXEC sp_addlinkedserver     
+   @server=@serverName,   
+   @provider=N'SQLNCLI',   
+   @srvproduct=N'',
+   @datasrc=@dataSource;  
+EXEC sp_addlinkedsrvlogin
+    @rmtsrvname=@serverName,
+	@useself = 'true'
+
+```
+
+Added migration LS
