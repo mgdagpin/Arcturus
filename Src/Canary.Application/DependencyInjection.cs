@@ -2,6 +2,7 @@
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Linq;
 using System.Reflection;
@@ -15,6 +16,9 @@ namespace Canary.Application
             service.AddMediatR(Assembly.GetExecutingAssembly());
             service.AddAutoMapper(Assembly.GetExecutingAssembly());
             service.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>));
+
+            service.AddSingleton<ILoggerFactory, LoggerFactory>();
+            service.AddSingleton(typeof(ILogger<>), typeof(Logger<>));
 
             // useful for unittesting
             if (includeValidators)
