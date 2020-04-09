@@ -22,6 +22,7 @@ namespace Canary.Infrastructure.Persistence
         public DbSet<User> Users { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<BlogPost> BlogPosts { get; set; }
+        public DbSet<LSUser> LSUsers { get; set; }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
         {

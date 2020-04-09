@@ -10,6 +10,7 @@ namespace Canary.Application
         DbSet<User> Users { get; set; }
         DbSet<Author> Authors { get; set; }
         DbSet<BlogPost> BlogPosts { get; set; }
+        DbSet<LSUser> LSUsers { get; set; }
 
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);

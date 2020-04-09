@@ -73,12 +73,12 @@ namespace Canary.DbMigration.Migrations
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "ID", "CreatedBy", "CreatedOn", "FirstName", "Gender", "LastName", "MiddleName" },
-                values: new object[] { -1, null, new DateTime(2020, 4, 6, 7, 36, 17, 154, DateTimeKind.Utc).AddTicks(6354), "Default", "None", "Default", null });
+                values: new object[] { -1, null, new DateTime(2020, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Default", "None", "Default", null });
 
             migrationBuilder.InsertData(
                 table: "Authors",
                 columns: new[] { "ID", "CreatedBy", "CreatedOn" },
-                values: new object[] { -1, null, new DateTime(2020, 4, 6, 7, 36, 17, 133, DateTimeKind.Utc).AddTicks(8894) });
+                values: new object[] { -1, null, new DateTime(2020, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) });
 
             migrationBuilder.CreateIndex(
                 name: "IX_BlogPosts_AuthorID",
