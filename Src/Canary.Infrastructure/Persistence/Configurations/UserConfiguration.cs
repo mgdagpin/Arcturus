@@ -1,13 +1,12 @@
 ﻿using Canary.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
 
 namespace Canary.Infrastructure.Persistence.Configurations
 {
-    public class UserConfiguration : IEntityTypeConfiguration<User>
+    public class UserConfiguration : BaseConfiguration<User>
     {
-        public void Configure(EntityTypeBuilder<User> builder)
+
+        public override void ConfigureProperty(BasePropertyBuilder<User> builder)
         {
             builder.Property(a => a.FirstName).HasMaxLength(150).IsRequired();
             builder.Property(a => a.LastName).HasMaxLength(150).IsRequired();
@@ -18,16 +17,16 @@ namespace Canary.Infrastructure.Persistence.Configurations
 
             builder.Property(a => a.FullName)
                 .HasComputedColumnSql("CONCAT(LastName, ', ', FirstName, ISNULL(' ' + SUBSTRING(MiddleName,1,1) + '.', ''))");
+        }
 
-
+        public override void SeedData(BaseSeeder<User> builder)
+        {
             builder.HasData(new User
             {
                 ID = -1,
                 FirstName = "Default",
-                LastName = "Default",
-                CreatedOn = new DateTime(2020, 1, 1)
+                LastName = "Default"
             });
-
         }
     }
 }

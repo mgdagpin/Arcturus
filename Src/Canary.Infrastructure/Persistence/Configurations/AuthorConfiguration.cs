@@ -1,20 +1,20 @@
 ﻿using Canary.Domain.Entities;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Canary.Infrastructure.Persistence.Configurations
 {
-    public class AuthorConfiguration : IEntityTypeConfiguration<Author>
+    public class AuthorConfiguration : BaseConfiguration<Author>
     {
-        public void Configure(EntityTypeBuilder<Author> builder)
+        public override void ConfigureProperty(BasePropertyBuilder<Author> builder)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void SeedData(BaseSeeder<Author> builder)
         {
             builder.HasData(new Author
             {
-                ID = -1,
-                CreatedOn = new DateTime(2020, 1, 1)
+                ID = -1
             });
         }
     }

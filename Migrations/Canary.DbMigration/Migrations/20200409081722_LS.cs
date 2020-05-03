@@ -8,7 +8,7 @@ namespace Canary.DbMigration.Migrations
         {
             migrationBuilder.Sql(@"CREATE VIEW LSUser
                     AS
-                    SELECT * FROM [LS_v13].[A-Peer_DB].dbo.tbl_User");
+                    SELECT * FROM [LS_v13].[DB].dbo.tbl_User");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

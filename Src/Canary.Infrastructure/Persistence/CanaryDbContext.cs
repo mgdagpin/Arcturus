@@ -31,7 +31,11 @@ namespace Canary.Infrastructure.Persistence
                 switch (entry.State)
                 {
                     case EntityState.Added:
-                        // entry.Entity.CreatedOn = dateTime.Now;
+                        entry.Property("CreatedOn").CurrentValue = dateTime.Now;
+                        break;
+
+                    case EntityState.Modified:
+                        entry.Property("ModifiedOn").CurrentValue = dateTime.Now;
                         break;
                 }
             }
