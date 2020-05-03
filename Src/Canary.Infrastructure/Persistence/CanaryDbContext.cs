@@ -2,6 +2,7 @@
 using Canary.Domain;
 using Canary.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
@@ -18,7 +19,6 @@ namespace Canary.Infrastructure.Persistence
         }
 
 
-
         public DbSet<User> Users { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<BlogPost> BlogPosts { get; set; }
@@ -31,11 +31,11 @@ namespace Canary.Infrastructure.Persistence
                 switch (entry.State)
                 {
                     case EntityState.Added:
-                        entry.Property("CreatedOn").CurrentValue = dateTime.Now;
+                        entry.Property<DateTime>("CreatedOn").CurrentValue = dateTime.Now;
                         break;
 
                     case EntityState.Modified:
-                        entry.Property("ModifiedOn").CurrentValue = dateTime.Now;
+                        entry.Property<DateTime>("ModifiedOn").CurrentValue = dateTime.Now;
                         break;
                 }
             }
@@ -47,8 +47,6 @@ namespace Canary.Infrastructure.Persistence
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-
-
         }
     }
 }
