@@ -1,6 +1,6 @@
 
 
-# Canary (Clean Architecture Template)
+# Arcturus (Clean Architecture Template)
 
 This solution architecture is inspired of Clean Architecture by [Robert C. Martin](ttps://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) and with help of [Vincent Dagpin](https://github.com/vgdagpin)  Dependency Injection approaches.
 

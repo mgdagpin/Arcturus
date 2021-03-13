@@ -1,0 +1,20 @@
+﻿{
+  "Entities": {
+    "Path": "../../Arcturus/Domain/Entities",
+    "Namespaces": [
+      "Arcturus.Domain.Entities"
+    ],
+    "ExcludedFiles": [
+      "../../Arcturus/Domain/Entities/Base/BaseEntity.cs",
+      "../../Arcturus/Domain/Entities/Base/AuditedBaseEntity.cs"
+    ]
+  },
+  "IDbContext": {
+    "Name": "IArcturusDbContext",
+    "Namespace": "Arcturus.Interfaces"
+  },
+  "DbContext": {
+    "Name": "ArcturusDbContext",
+    "Namespace": "Arcturus.Infrastructure.Persistence"
+  }
+}

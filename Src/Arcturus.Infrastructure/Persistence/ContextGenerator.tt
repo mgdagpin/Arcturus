@@ -1,0 +1,87 @@
+﻿<#@ template debug="true" hostspecific="true" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="Newtonsoft.Json" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="Newtonsoft.Json" #>
+<#@ import namespace="Newtonsoft.Json.Linq" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".cs" #>
+<#
+
+
+    var t4File = this.Host.TemplateFile;
+    var entitiesPath= Path.GetDirectoryName(t4File);
+    var jsonConfig = Path.ChangeExtension(t4File, "json");
+    var config = JObject.Parse(File.ReadAllText(jsonConfig));
+    var entitiesDirectory = Path.GetFullPath(Path.Combine(entitiesPath,config.SelectToken("$.Entities.Path").ToString() ));
+
+	var excludedTypes = config.SelectToken("$.Entities.ExcludedFiles").ToObject<string[]>().Select(a => Path.GetFullPath(Path.Combine(entitiesPath, a)));
+#>
+using System;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Reflection;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+
+using <#= config.SelectToken("$.IDbContext.Namespace") #>;
+<# foreach (var ns in config.SelectToken("$.Entities.Namespaces").ToObject<string[]>()) { #>
+using <#= ns #>;
+<# } #>
+
+/*
+Do not modify this file! This is auto generated!
+Any changes to this file will be gone when template gets generated again.
+*/
+
+namespace <#= config.SelectToken("$.DbContext.Namespace") #>
+{
+	public partial class <#= config.SelectToken("$.DbContext.Name") #> : DbContext, <#= config.SelectToken("$.IDbContext.Name") #>
+	{
+		#region Entities
+<# foreach (var _eachFile in Directory.GetFiles(entitiesDirectory, "*.cs", SearchOption.AllDirectories)) { if (excludedTypes.Contains(_eachFile)) continue; #>
+		private DbSet<<#= Path.GetFileNameWithoutExtension(_eachFile) #>> db_<#= Pluralize(Path.GetFileNameWithoutExtension(_eachFile)) #> { get; set; }
+		public IQueryable<<#= Path.GetFileNameWithoutExtension(_eachFile) #>> <#= Pluralize(Path.GetFileNameWithoutExtension(_eachFile)) #> 
+		{ 
+			get { return db_<#= Pluralize(Path.GetFileNameWithoutExtension(_eachFile)) #>; }
+			private set { db_<#= Pluralize(Path.GetFileNameWithoutExtension(_eachFile)) #> = (DbSet<<#= Path.GetFileNameWithoutExtension(_eachFile) #>>)value; }
+		}
+<# } #>
+        #endregion
+
+		public <#= config.SelectToken("$.DbContext.Name") #>(DbContextOptions<<#= config.SelectToken("$.DbContext.Name") #>> dbContextOpt) : base(dbContextOpt)
+        {
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        }
+	}
+}
+
+namespace <#= config.SelectToken("$.DbContext.Namespace") #>.Configurations
+{
+<# foreach (var _eachFile in Directory.GetFiles(entitiesDirectory, "*.cs", SearchOption.AllDirectories)) { if (excludedTypes.Contains(_eachFile)) continue; #>
+	public partial class <#= Path.GetFileNameWithoutExtension(_eachFile) #>_Configuration : BaseConfiguration<<#= Path.GetFileNameWithoutExtension(_eachFile) #>> { }
+<# } #>
+}
+<#+
+private string Pluralize(string input)
+{
+	string _retVal = input ?? "";
+
+	if (_retVal.Trim() == "") return "";
+	if(_retVal.EndsWith("Data")) return _retVal;
+	if(_retVal.EndsWith("ch")) return _retVal + "es";
+	if(_retVal.EndsWith("sis")) return _retVal.Substring(0, _retVal.Length - 3) + "ses";
+	if	(_retVal.EndsWith("s")) return _retVal + "es";
+	if (_retVal.EndsWith("ay")) return _retVal + "s";
+	if (_retVal.EndsWith("y")) return _retVal.Substring(0, _retVal.Length - 1) + "ies";
+
+	return _retVal + "s";
+}
+#>

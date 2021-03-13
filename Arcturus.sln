@@ -1,0 +1,81 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29926.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{3D92B450-C9A7-4FED-AB0E-F3FF26F3A7A8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{F90A428E-FB38-496C-B69B-B091FC9A29AA}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{97D3F960-56D2-4314-8A52-B2FCF4579AFB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Migrations", "Migrations", "{E178BD9D-00D0-45D0-AF2F-9CE535D8AD29}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arcturus.DbMigration", "Migrations\Arcturus.DbMigration\Arcturus.DbMigration.csproj", "{58E33E90-2D56-4B78-BC8A-5A9ECC950D28}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arcturus.Application", "Src\Arcturus.Application\Arcturus.Application.csproj", "{74C70120-046D-4E66-8DC8-C730DF39AC9E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arcturus.MvcUI", "Src\Arcturus.UI.Client\Arcturus.MvcUI.csproj", "{6D49F109-1B5F-4CD6-BB55-1DF84FD13AB1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arcturus.Infrastructure", "Src\Arcturus.Infrastructure\Arcturus.Infrastructure.csproj", "{81933EB1-8FF4-42D4-8642-8108F4D912BE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arcturus.UnitTesting", "Tests\Arcturus.UnitTesting\Arcturus.UnitTesting.csproj", "{205C2A67-4331-48E1-A138-859AA0A51F18}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{A14DEEF4-C9F0-45FE-9C41-5E4BF6148490}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentations", "Presentations", "{1BE3DD25-4896-49C3-936F-94E6959CCF97}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arcturus", "Src\Arcturus\Arcturus.csproj", "{39771011-D8BD-4741-80DC-79708DDE7FB7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{58E33E90-2D56-4B78-BC8A-5A9ECC950D28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58E33E90-2D56-4B78-BC8A-5A9ECC950D28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58E33E90-2D56-4B78-BC8A-5A9ECC950D28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58E33E90-2D56-4B78-BC8A-5A9ECC950D28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74C70120-046D-4E66-8DC8-C730DF39AC9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74C70120-046D-4E66-8DC8-C730DF39AC9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74C70120-046D-4E66-8DC8-C730DF39AC9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74C70120-046D-4E66-8DC8-C730DF39AC9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D49F109-1B5F-4CD6-BB55-1DF84FD13AB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D49F109-1B5F-4CD6-BB55-1DF84FD13AB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D49F109-1B5F-4CD6-BB55-1DF84FD13AB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D49F109-1B5F-4CD6-BB55-1DF84FD13AB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81933EB1-8FF4-42D4-8642-8108F4D912BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81933EB1-8FF4-42D4-8642-8108F4D912BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81933EB1-8FF4-42D4-8642-8108F4D912BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81933EB1-8FF4-42D4-8642-8108F4D912BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{205C2A67-4331-48E1-A138-859AA0A51F18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{205C2A67-4331-48E1-A138-859AA0A51F18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{205C2A67-4331-48E1-A138-859AA0A51F18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{205C2A67-4331-48E1-A138-859AA0A51F18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39771011-D8BD-4741-80DC-79708DDE7FB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39771011-D8BD-4741-80DC-79708DDE7FB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39771011-D8BD-4741-80DC-79708DDE7FB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39771011-D8BD-4741-80DC-79708DDE7FB7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E178BD9D-00D0-45D0-AF2F-9CE535D8AD29} = {3D92B450-C9A7-4FED-AB0E-F3FF26F3A7A8}
+		{58E33E90-2D56-4B78-BC8A-5A9ECC950D28} = {E178BD9D-00D0-45D0-AF2F-9CE535D8AD29}
+		{74C70120-046D-4E66-8DC8-C730DF39AC9E} = {A14DEEF4-C9F0-45FE-9C41-5E4BF6148490}
+		{6D49F109-1B5F-4CD6-BB55-1DF84FD13AB1} = {1BE3DD25-4896-49C3-936F-94E6959CCF97}
+		{81933EB1-8FF4-42D4-8642-8108F4D912BE} = {A14DEEF4-C9F0-45FE-9C41-5E4BF6148490}
+		{205C2A67-4331-48E1-A138-859AA0A51F18} = {97D3F960-56D2-4314-8A52-B2FCF4579AFB}
+		{A14DEEF4-C9F0-45FE-9C41-5E4BF6148490} = {3D92B450-C9A7-4FED-AB0E-F3FF26F3A7A8}
+		{1BE3DD25-4896-49C3-936F-94E6959CCF97} = {3D92B450-C9A7-4FED-AB0E-F3FF26F3A7A8}
+		{39771011-D8BD-4741-80DC-79708DDE7FB7} = {A14DEEF4-C9F0-45FE-9C41-5E4BF6148490}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DDC654DE-1D98-4AE1-8D77-D003E0A5021B}
+	EndGlobalSection
+EndGlobal

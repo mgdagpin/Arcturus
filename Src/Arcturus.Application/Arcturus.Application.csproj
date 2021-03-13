@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="BlogPosts\Commands\CreateBlogCommand.cs" />
+    <Compile Remove="BlogPosts\Queries\FindBlogQuery.cs" />
+    <Compile Remove="BlogPosts\Queries\GetBlogQuery.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="FluentValidation" Version="8.6.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.3" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Log4Net.AspNetCore" Version="3.1.0" />
+    <PackageReference Include="TasqR" Version="1.4.7" />
+    <PackageReference Include="TasqR.Extensions.Microsoft.DependencyInjection" Version="1.4.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="BlogPosts\Commands\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Arcturus\Arcturus.csproj" />
+  </ItemGroup>
+
+</Project>
