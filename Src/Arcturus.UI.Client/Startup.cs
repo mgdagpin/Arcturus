@@ -3,7 +3,6 @@ using Arcturus.Infrastructure;
 using Arcturus.Interfaces;
 using Arcturus.MvcUI.Common;
 using Arcturus.MvcUI.Common.Security;
-using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -39,8 +38,8 @@ namespace Arcturus.MvcUI
             })
             .AddEntityFramework();
 
-            services.AddControllersWithViews()
-            .AddFluentValidation(a => a.RegisterValidatorsFromAssemblyContaining<IArcturusDbContext>()); ;
+            services.AddControllersWithViews();
+            //.AddFluentValidation(a => a.RegisterValidatorsFromAssemblyContaining<IArcturusDbContext>()); ;
 
 
             services.AddAuthorization(options =>

@@ -2,7 +2,6 @@
 using Arcturus.Commands.UsersCmds;
 using Arcturus.Domain.Entities;
 using Arcturus.Interfaces;
-using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using System.Threading;
 using System.Threading.Tasks;
@@ -37,23 +36,6 @@ namespace Arcturus.Application.Handlers.Commands.UserCmds
             {
                 return newUser;
             });
-        }
-
-        public class NewUserCmdValidator : AbstractValidator<NewUserCmd>
-        {
-            public NewUserCmdValidator()
-            {
-                RuleFor(a => a.FirstName)
-                    .NotNull()
-                    .MaximumLength(250);
-
-                RuleFor(a => a.LastName)
-                    .NotNull()
-                    .MaximumLength(250);
-
-                RuleFor(a => a.Gender)
-                    .NotNull();
-            }
         }
     }
 }
