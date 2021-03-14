@@ -17,8 +17,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Src\Arcturus.Application\Arcturus.Application.csproj" />
-    <ProjectReference Include="..\..\Src\Arcturus.Domain\Arcturus.csproj" />
     <ProjectReference Include="..\..\Src\Arcturus.Infrastructure\Arcturus.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\Src\Arcturus\Arcturus.csproj" />
   </ItemGroup>
 
   <ItemGroup>

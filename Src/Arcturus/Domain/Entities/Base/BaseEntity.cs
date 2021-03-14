@@ -5,6 +5,5 @@ namespace Arcturus.Domain
 {
     public abstract class BaseEntity
     {
-
     }
 }

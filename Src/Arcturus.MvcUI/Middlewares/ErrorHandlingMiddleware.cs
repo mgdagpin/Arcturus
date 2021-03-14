@@ -1,5 +1,6 @@
 ﻿using Arcturus.Application;
 using Arcturus.Common.Extensions;
+using FluentValidation;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Data.SqlClient;
@@ -60,17 +61,17 @@ namespace Arcturus.MvcUI.Middlewares
                 _code = HttpStatusCode.BadRequest;
                 _errorType = "Invalid Request";
             }
-            //else if (_exception is ValidationException)
-            //{
-            //    var _valEx = _exception as ValidationException;
+            else if (_exception is ValidationException)
+            {
+                var _valEx = _exception as ValidationException;
 
-            //    _code = HttpStatusCode.BadRequest;
-            //    _errorType = "Invalid Data";
+                _code = HttpStatusCode.BadRequest;
+                _errorType = "Invalid Data";
 
-            //    _message = _valEx.Errors
-            //        .Select(a => a.ErrorMessage)
-            //        .ToList();
-            //}
+                _message = _valEx.Errors
+                    .Select(a => a.ErrorMessage)
+                    .ToList();
+            }
 
             var _result = JsonConvert.SerializeObject(new ErrorHandlingResult
             {

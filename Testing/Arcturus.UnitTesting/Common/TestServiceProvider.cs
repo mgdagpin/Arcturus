@@ -1,6 +1,7 @@
 ﻿using Arcturus.Application;
 using Arcturus.Infrastructure;
 using Arcturus.Infrastructure.Persistence;
+using Arcturus.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
